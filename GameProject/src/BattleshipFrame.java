@@ -2,7 +2,6 @@ import java.util.Random;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
-import javax.swing.JPanel;
 import javax.swing.JLabel;
 
 import java.awt.Dimension;
@@ -22,7 +21,12 @@ import java.awt.event.ActionEvent;
 
 public class BattleshipFrame extends JFrame
 {    
-    /** SquarePanel array representing the playing grid of 8 rows by 8 columns*/
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/** SquarePanel array representing the playing grid of 8 rows by 8 columns*/
     SquarePanel panel[][] = new SquarePanel[8][8];
     
     /** Jbutton array representing the 64 possible guesses*/
@@ -269,7 +273,7 @@ public class BattleshipFrame extends JFrame
      * @param   lengthOfShip    the length of the specific ship currently being placed
      */
     
-    public static void populateBoard(int lengthOfShip)
+    public void populateBoard(int lengthOfShip)
     {
         /** instance used for randomly placing the ships*/
         Random random = new Random();
