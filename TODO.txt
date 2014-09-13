@@ -1,0 +1,15 @@
+BattleShips TODO list
+-------------------------------------------------------------------
+
+> Add a limitation to guesses + how many guesses left.
+> Guesses should only account for clicking empty squares. 
+> If guesses made > guessLimit = you lose.
+> Game over screen should display a winning/losing message instead of only "Play again"
+	> It should also contain the score, guesses made, guesses hit/lost.
+> The game should feature a score board, hosted online and downloaded and 
+read by the game on each start. 
+> We should make a nav menu for the game which takes:
+	> Play - takes you to the game.
+	> Scoreboard - takes you to the score board. - scoreboard opens a new window. 
+	> Exit - exits the game.
+> Playing sounds on clicking/winning/losing 
