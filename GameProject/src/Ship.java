@@ -79,7 +79,7 @@ public class Ship {
     
     public boolean isOverlap(Ship neighbour) {
         //This method returns true if the ship overlaps with another ship passing in as 
-        //parameter neighbour; returns false otherwise
+        //parameter neighbor; returns false otherwise
         //A-17=0
         int[][] board = new int[99][99];
            for (int i = 0; i < board.length; i++)

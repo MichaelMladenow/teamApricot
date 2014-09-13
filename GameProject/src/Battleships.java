@@ -145,7 +145,7 @@ public class Battleships {
                 showError();
             }
 
-        }// end of shotting while loop
+        }// end of shooting while loop
         
         if (this.ships.length == dead) {
             JOptionPane.showMessageDialog(null, "Game Over, You Win!");
