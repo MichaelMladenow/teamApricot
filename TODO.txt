@@ -1,8 +1,0 @@
-We should add a piece of code that visualizes the grid (if possible)
-OR
-We should add a piece of code to inform people how big ships are 
-Because when you try to set a ship somewhere and it crosses the grid's boundaries
-you get an Invalid Input Error (which is cool) but it's hard to keep in mind 
-how the grid is formed, where your ships are and how they're positioned (vertical
-or horizontal). 
-
