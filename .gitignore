@@ -2,8 +2,6 @@
 *.settings
 *.classpath
 *.project
-<<<<<<< HEAD
 *.class
 
-=======
->>>>>>> 0fae3e2548dbf3d97e1449c4f5a82ea31936189c
+*.gitignore~
