@@ -14,3 +14,4 @@ read by the game on each start.
 	> Exit - exits the game.
 > Playing sounds on clicking/winning/losing 
 >  (Svilen-Done) Adding battleship icons on info 
+> (Georgi-Done) Formatting icons and correcting path to them
