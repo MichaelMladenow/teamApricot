@@ -258,20 +258,23 @@ public class BattleshipFrame extends JFrame
     
     public boolean checkForGameOver()
     {
-        for (int row = 0; row < 8; row++)
-        {
-            for (int col = 0; col < 8; col++)
+    	if (guessesLeft == 0){
+    		return true;
+    	}else{
+    		for (int row = 0; row < 8; row++)
             {
-                //if the board doesnt contain a ship or if it contains a ship but the position has already been located
-                if (board[row][col] != 0 && board[row][col] != -1) 
+                for (int col = 0; col < 8; col++)
                 {
-                    return false;
+                    //if the board doesnt contain a ship or if it contains a ship but the position has already been located
+                    if (board[row][col] != 0 && board[row][col] != -1) 
+                    {
+                        return false;
+                    }
                 }
             }
+            return true;
         }
-        return true;
-    }
-    
+    	}
     /**
      * Fills the board randomly with the 4 ships.
      * 
