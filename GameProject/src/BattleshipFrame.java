@@ -173,21 +173,21 @@ public class BattleshipFrame extends JFrame
             //if the guess hit a frigate
             if (board[r][c] == 3)
             {
-                button[r][c].setBackground(Color.blue);
+                button[r][c].setBackground(Color.yellow);
                 board[r][c] = -1;
             }
             
             //if the guess hit a cruiser
             if (board[r][c] == 4)
             {
-                button[r][c].setBackground(Color.red);
+                button[r][c].setBackground(Color.blue);
                 board[r][c] = -1;
             }
             
             //if the guess hit a battleship
             if (board[r][c] == 5)
             {
-                button[r][c].setBackground(Color.yellow);
+                button[r][c].setBackground(Color.red);
                 board[r][c] = -1;
             }
             
