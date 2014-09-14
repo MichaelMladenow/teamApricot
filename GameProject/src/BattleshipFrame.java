@@ -161,7 +161,7 @@ public class BattleshipFrame extends JFrame
             if (board[r][c] == 0)
             {
                 button[r][c].setBackground(Color.black);
-                board[r][c] = 0;
+                board[r][c] = -1;                 
                 guesses++;
             }
             
