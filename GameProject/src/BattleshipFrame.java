@@ -44,6 +44,7 @@ public class BattleshipFrame extends JFrame
     
     /** Integer representing the number of guesses made*/
     int guesses = 0;
+    int guessesLeft=20;
     
     /** Static Integer representing the length of the ship, used in the placement of the ships*/
     static int length;    
@@ -57,6 +58,7 @@ public class BattleshipFrame extends JFrame
     
     public void eraseBoard()
     {
+    	guessesLeft=20;
         guesses = 0;
         for (int x1 = 0; x1 < 8; x1++)
         {
@@ -67,7 +69,8 @@ public class BattleshipFrame extends JFrame
             }            
         }
         
-        info.guesses.setText("Wrong guesses: " + guesses);//displays the number of guesses
+      info.guesses.setText("Wrong guesses: " + guesses);//displays the number of guesses
+      info.guessesLeft.setText("Left: " + guessesLeft);
     }
     
     /**
@@ -163,6 +166,7 @@ public class BattleshipFrame extends JFrame
                 button[r][c].setBackground(Color.black);
                 board[r][c] = -1;                 
                 guesses++;
+                guessesLeft--;
             }
             
             //if the guess hit a minesweeper
@@ -194,7 +198,7 @@ public class BattleshipFrame extends JFrame
             }
                      
             info.guesses.setText("Wrong guesses: " + guesses);     
-            
+            info.guessesLeft.setText("Left: " + guessesLeft); 
             if (checkForGameOver())
             {
                 checkForPlayAgain();
@@ -259,7 +263,7 @@ public class BattleshipFrame extends JFrame
             for (int col = 0; col < 8; col++)
             {
                 //if the board doesnt contain a ship or if it contains a ship but the position has already been located
-                if (board[row][col] != 0 && board[row][col] != -1)
+                if (board[row][col] != 0 && board[row][col] != -1) 
                 {
                     return false;
                 }

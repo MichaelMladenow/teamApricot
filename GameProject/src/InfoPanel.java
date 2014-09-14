@@ -19,9 +19,11 @@ public class InfoPanel extends JPanel
 {
     /** integer represenging the number of guesses made*/
     int numberOfGuesses = 0;
-    
+    int numberLeftEnd= 20;
+
     /** JLabel containing the integer numberOfGuesses*/
     JLabel guesses;
+    JLabel guessesLeft;
 
     /**
      * Class Constructor.
@@ -31,9 +33,12 @@ public class InfoPanel extends JPanel
     {        
         setLayout(new FlowLayout());
         setPreferredSize(new Dimension(400,100));        
-        guesses = new JLabel("Wrong guesses: " + numberOfGuesses);
-        guesses.setForeground(Color.red);
-        add(guesses);       
+        guesses = new JLabel("Wrong guesses:   " + numberOfGuesses);
+        guesses.setForeground(Color.black);
+        add(guesses);     
+        guessesLeft = new JLabel("Left: " +  numberLeftEnd);
+        guessesLeft.setForeground(Color.red);
+        add(guessesLeft);     
     }
     
     /**

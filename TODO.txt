@@ -1,7 +1,7 @@
 BattleShips TODO list
 -------------------------------------------------------------------
 > Make the game take ships with size > 5 
-> Add a limitation to guesses + how many guesses left.
+> (Svilen-Done )Add a limitation to guesses(limit to 20) + how many guesses left.
 > (Svilen-Done)Guesses should only account for clicking empty squares. 
 > If guesses made > guessLimit = you lose.
 > Game over screen should display a winning/losing message instead of only "Play again"
