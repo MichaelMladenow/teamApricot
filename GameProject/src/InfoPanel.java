@@ -31,7 +31,7 @@ public class InfoPanel extends JPanel
     {        
         setLayout(new FlowLayout());
         setPreferredSize(new Dimension(400,100));        
-        guesses = new JLabel("Guesses: " + numberOfGuesses);
+        guesses = new JLabel("Wrong guesses: " + numberOfGuesses);
         guesses.setForeground(Color.red);
         add(guesses);       
     }

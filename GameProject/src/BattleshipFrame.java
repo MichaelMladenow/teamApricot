@@ -1,3 +1,4 @@
+
 import java.util.Random;
 
 import javax.swing.JFrame;
@@ -66,7 +67,7 @@ public class BattleshipFrame extends JFrame
             }            
         }
         
-        info.guesses.setText("Guesses: " + guesses);//displays the number of guesses
+        info.guesses.setText("Wrong guesses: " + guesses);//displays the number of guesses
     }
     
     /**
@@ -161,6 +162,7 @@ public class BattleshipFrame extends JFrame
             {
                 button[r][c].setBackground(Color.black);
                 board[r][c] = 0;
+                guesses++;
             }
             
             //if the guess hit a minesweeper
@@ -190,9 +192,8 @@ public class BattleshipFrame extends JFrame
                 button[r][c].setBackground(Color.red);
                 board[r][c] = -1;
             }
-            
-            guesses++;
-            info.guesses.setText("Guesses: " + guesses);     
+                     
+            info.guesses.setText("Wrong guesses: " + guesses);     
             
             if (checkForGameOver())
             {
