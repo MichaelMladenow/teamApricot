@@ -13,7 +13,7 @@ Added a winning and a losing case, when you win, if you press the "No" button
 at "Play Again", you are asked to enter your name so the game can keep your
 winning score. If you lose the "No" button quits.
 
->(NEW) Add guesses count to Game over screen when losing
+>(Nick-WIP) Add guesses count to Game over screen when losing
 
 > (Georgi - Done) Added a local scoreboard which reads from a .txt in /src,
 also added a separate frame to display it.WARNING - DO NOT leave a line
