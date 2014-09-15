@@ -1,17 +1,37 @@
 BattleShips TODO list
 -------------------------------------------------------------------
-> Make the game take ships with size > 5 
+> Make the game take ships with size > 5
+ 
 > (Svilen-Done )Add a limitation to guesses(limit to 20) + how many guesses left.
-> (Svilen-Done)Guesses should only account for clicking empty squares. 
+		(Georgi - changed) - upped limit to 25 - less difficult.
+> (Svilen-Done)Guesses should only account for clicking empty squares.
+ 
 > (Georgi-Done)If guesses made > guessLimit = you lose.
-> Game over screen should display a winning/losing message instead of only "Play again"
-	> It should also contain the score, guesses made, guesses hit/lost.
-> The game should feature a score board, hosted online and downloaded and 
-read by the game on each start. 
-> We should make a nav menu for the game which takes:
-	> Play - takes you to the game.
-	> Scoreboard - takes you to the score board. - scoreboard opens a new window. 
-	> Exit - exits the game.
-> Playing sounds on clicking/winning/losing 
->  (Svilen-Done) Adding battleship icons on info 
-> (Georgi-Done) Formatting icons and correcting path to them
+
+> (Georgi-Done)Game over screen should display a winning/losing message.
+Added a winning and a losing case, when you win, if you press the "No" button
+at "Play Again", you are asked to enter your name so the game can keep your
+winning score. If you lose the "No" button quits.
+
+>(NEW) Add guesses count to Game over screen when losing
+
+> (Georgi - Done) Added a local scoreboard which reads from a .txt in /src,
+also added a separate frame to display it.WARNING - DO NOT leave a line
+line in scoreFile.txt if you clean it up, make sure you've deleted all
+spaces and newlines. Otherwise it will break the reader. Sorry.
+
+>(NEW) Add some smooth formatting to the scoreboard text reader 
+that will take names and scores and keep them centered. Also 
+limit name length so it will always fit the reader
+
+> (Georgi - deprecated)Add menus- (NEW)just add an EXIT button to the scoreboard
+frame.
+ 
+> Playing sounds on clicking/winning/losing
+ 
+> (Svilen-Done) Adding battleship icons on info
+		(Georgi - fixed) Aligned icons and changed their path to /src
+		also changed code to load them. Moved "Miss" square and text
+		upwards by a bit for better looks. Feel free to change.
+ 
+

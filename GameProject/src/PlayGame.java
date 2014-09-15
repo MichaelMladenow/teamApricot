@@ -7,7 +7,7 @@ public class PlayGame {
 
 	/** integer representing the lenght of the longest ship */
 	final static int BATTLESHIP = 5;
-
+	
 	/**
 	 * Main method, initializes the game.
 	 * 

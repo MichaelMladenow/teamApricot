@@ -2,7 +2,7 @@ import javax.swing.JPanel;
 
 import java.awt.Dimension;
 import java.awt.Color;
-import java.awt.Graphics;
+//import java.awt.Graphics;
 
 /**
  * Creates a new JPanel that will be placed on each possible guess position
@@ -32,10 +32,10 @@ public class SquarePanel extends JPanel
      * @param   g   the Graphics instance to be painted
      */
     
-    public void paintComponent(Graphics g)
-    {
-        super.paintComponent(g);
-        g.setColor(Color.black);
-        g.drawRect(0,0,49,49);   
-    }  
+//    public void paintComponent(Graphics g)
+//    {
+//        super.paintComponent(g);
+//        g.setColor(Color.black);
+//        g.drawRect(0,0,49,49);   
+//    }  
 }

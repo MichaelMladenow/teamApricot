@@ -4,6 +4,7 @@ import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -11,6 +12,10 @@ import java.awt.Color;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
 
 /**
  * Simulates solitaire play of the game Battleship.  Try to locate all parts of all 5 enemy ships.
@@ -39,12 +44,16 @@ public class BattleshipFrame extends JFrame
     /** JFrame containing a question dialog displayed at the end of a game*/
     JFrame playAgain;
     
+    //A frame for the player to enter their name.
+    JFrame getName;
+    
     /** Color representing the default color of each JButton*/
     Color defaultColor;
     
-    /** Integer representing the number of guesses made*/
+    /** Integer representing the number of guesses made, guesses left and score.*/
     int guesses = 0;
-    int guessesLeft=20;
+    int guessesLeft=25;
+    int score;
     
     /** Static Integer representing the length of the ship, used in the placement of the ships*/
     static int length;    
@@ -58,8 +67,8 @@ public class BattleshipFrame extends JFrame
     
     public void eraseBoard()
     {
-    	guessesLeft=20;
         guesses = 0;
+        guessesLeft = 25;
         for (int x1 = 0; x1 < 8; x1++)
         {
             for (int y1 = 0; y1 < 8; y1++)
@@ -84,16 +93,50 @@ public class BattleshipFrame extends JFrame
         playAgain.setVisible(true);
         JButton yes = new JButton("Yes");
         JButton no = new JButton("No");
+        JButton score = new JButton("Score");
         JLabel playAgainLabel = new JLabel("Would you like to play again?");
         playAgain.add(playAgainLabel);
         playAgain.add(yes);
         playAgain.add(no);
+        playAgain.add(score);
         no.addActionListener(new ExitGame());
         yes.addActionListener(new PlayAgain());
-        playAgain.setTitle("Play Again?");
+        score.addActionListener(new Score());
+        if(checkForGameOverWin()){
+        	playAgain.setTitle("You win!");
+        }else{
+        	playAgain.setTitle("Game over, you lose!");
+        }
         playAgain.setDefaultCloseOperation(EXIT_ON_CLOSE);        
         playAgain.pack();       
-    }        
+    } 
+    
+    
+	public String nameEntry ()
+		{
+		String s = (String)JOptionPane.showInputDialog(
+                playAgain,
+                "Enter your name:",
+                "Customized Dialog",
+                JOptionPane.PLAIN_MESSAGE,
+                null,
+                null,
+                "Your name here");
+		score = guesses + (25 - guessesLeft);
+		Writer output;
+		try {
+			output = new BufferedWriter(new FileWriter("src/scoreFile.txt", true));
+			output.append(s +" " + score+ "\n");
+			output.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+        return s;
+        }
+    
+   
     
     /**
      * Class Constructor.  Displays the playing field on the JFrame
@@ -103,10 +146,9 @@ public class BattleshipFrame extends JFrame
     {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setPreferredSize(new Dimension(425,545));
-        //setResizable(false);
         setLayout(new FlowLayout(1,0,0));
         setVisible(true);
-        setTitle("Battleship"); 
+        setTitle("JavaShips"); 
         setResizable(false);
         
         //populates the board with panels with JButtons on them
@@ -199,8 +241,9 @@ public class BattleshipFrame extends JFrame
                      
             info.guesses.setText("Wrong guesses: " + guesses);     
             info.guessesLeft.setText("Left: " + guessesLeft); 
-            if (checkForGameOver())
-            {
+            if (checkForGameOverWin() || checkForGameOverLose() )
+            {	
+            	
                 checkForPlayAgain();
             }           
         }           
@@ -221,7 +264,12 @@ public class BattleshipFrame extends JFrame
         
         public void actionPerformed(ActionEvent evt)
         {
-            System.exit(0);
+        	if (checkForGameOverWin()){
+        		nameEntry();	
+        	}else{
+        		System.exit(0);
+        	}
+        	
         }
     }
     
@@ -256,11 +304,8 @@ public class BattleshipFrame extends JFrame
      * @return  false if the game is not over, true if the game is over
      */
     
-    public boolean checkForGameOver()
+    public boolean checkForGameOverWin()
     {
-    	if (guessesLeft == 0){
-    		return true;
-    	}else{
     		for (int row = 0; row < 8; row++)
             {
                 for (int col = 0; col < 8; col++)
@@ -274,7 +319,13 @@ public class BattleshipFrame extends JFrame
             }
             return true;
         }
+    public boolean checkForGameOverLose(){
+    	if (guessesLeft == 0){
+    		return true;
     	}
+    	return false;
+    }
+  
     /**
      * Fills the board randomly with the 4 ships.
      * 
