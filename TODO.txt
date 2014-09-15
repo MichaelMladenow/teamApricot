@@ -27,7 +27,7 @@ limit name length so it will always fit the reader
 > (Georgi - deprecated)Add menus- (NEW)just add an EXIT button to the scoreboard
 frame.
  
-> Playing sounds on clicking/winning/losing
+> (Michael) Playing sounds on clicking/winning/losing
  
 > (Svilen-Done) Adding battleship icons on info
 		(Georgi - fixed) Aligned icons and changed their path to /src
