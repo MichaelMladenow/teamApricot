@@ -136,6 +136,7 @@ public class BattleshipFrame extends JFrame {
 
 			playAgain.add(firstRow);
 			playAgain.add(secondRow);
+			rightGuesses = 0;
 		}
 
 		playAgain.setDefaultCloseOperation(EXIT_ON_CLOSE);
