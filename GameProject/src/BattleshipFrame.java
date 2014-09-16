@@ -287,6 +287,7 @@ public class BattleshipFrame extends JFrame {
 		public void actionPerformed(ActionEvent evt) {
 			if (checkForGameOverWin()) {
 				nameEntry();
+				System.exit(0);
 			} else {
 				System.exit(0);
 			}
